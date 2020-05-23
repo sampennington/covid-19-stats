@@ -8,7 +8,7 @@ function useStats(url) {
             const data = await fetch(url)
                 .then(res => res.json());
              setStats(data);
-             console.log(data);
+             // console.log(data);
         }
         fetchData();
     }, []);
