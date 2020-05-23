@@ -1,1 +1,1 @@
-Covid 19 App Tracker App - Manuel Alonge
+Covid 19 Stats Tracker App for Italy - Manuel Alonge
