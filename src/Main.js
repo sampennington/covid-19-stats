@@ -7,7 +7,9 @@ import useStats from './useStats';
 
 function Stats() {
     
-    const statGrid = {
+    const statGrid = {        
+        marginTop: '55px',
+        padding: '30px',
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
         gridGap: '2rem'
@@ -25,7 +27,7 @@ function Stats() {
     
     if (!stats) return <p>Loading...</p>;
     return (        
-        <div style={statGrid}>            
+        <div style={statGrid}>                   
             <div style={statBlock}>
                 <h3>Total cases:</h3>
                 <span>{stats.confirmed.value}</span>
@@ -37,7 +39,8 @@ function Stats() {
             <div style={statBlock}>
                 <h3>Deaths:</h3>
                 <span>{stats.deaths.value}</span>
-            </div>
+            </div>          
+            
         </div>
     );
 }
@@ -45,8 +48,7 @@ function Stats() {
 function IndexPage() {
     return (
         <div>
-            <Stats url='https://covid19.mathdro.id/api/countries/italy'>
-
+            <Stats>
             </Stats>
         </div>
     );
