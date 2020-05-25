@@ -8,7 +8,7 @@ function useStats() {
             const data = await fetch('https://covid19.mathdro.id/api/countries/italy')
                 .then(res => res.json());
              setStats(data);
-             // console.log(data);
+             console.log(data);
         }
         fetchData();
     }, []);

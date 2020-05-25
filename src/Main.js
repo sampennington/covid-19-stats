@@ -8,36 +8,35 @@ import useStats from './useStats';
 function Stats() {
     
     const statGrid = {
-        marginTop: '170px',
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
-        gridGap: '1rem'
+        gridGap: '2rem'
     };
 
     const statBlock = {
-        backgroundColor: 'azure',
-        fontSize: '2rem'
+        border: '1px solid black',
+        fontSize: '1rem',
+        textAlign: 'center'
     };
 
     const url = 'https://covid19.mathdro.id/api/countries/italy';
     
     const stats = useStats(url);
     
-    if (!stats) return <p>Caricamento...</p>;
-    return (
-        <h1>Situazione COVID 19 Italia</h1>
-        <div style={statGrid}>
+    if (!stats) return <p>Loading...</p>;
+    return (        
+        <div style={statGrid}>            
             <div style={statBlock}>
-                <h3>Casi totali:</h3>
+                <h3>Total cases:</h3>
                 <span>{stats.confirmed.value}</span>
-            </div>
+            </div>            
             <div style={statBlock}>
-                <h3>Decessi:</h3>
-                <span>{stats.deaths.value}</span>
-            </div>
-            <div style={statBlock}>
-                <h3>Guarigioni:</h3>
+                <h3>Recovered:</h3>
                 <span>{stats.recovered.value}</span>
+            </div>
+            <div style={statBlock}>
+                <h3>Deaths:</h3>
+                <span>{stats.deaths.value}</span>
             </div>
         </div>
     );
