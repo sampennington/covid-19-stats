@@ -25,6 +25,7 @@ function Stats() {
     
     if (!stats) return <p>Caricamento...</p>;
     return (
+        <h1>Situazione COVID 19 Italia</h1>
         <div style={statGrid}>
             <div style={statBlock}>
                 <h3>Casi totali:</h3>
@@ -35,7 +36,7 @@ function Stats() {
                 <span>{stats.deaths.value}</span>
             </div>
             <div style={statBlock}>
-                <h3>Guariti:</h3>
+                <h3>Guarigioni:</h3>
                 <span>{stats.recovered.value}</span>
             </div>
         </div>
