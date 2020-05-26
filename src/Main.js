@@ -1,6 +1,6 @@
 import React from 'react';
 import useStats from './useStats';
-import Chart from './Chart';
+// import Chart from './Chart';
 import LastUpdate from './lastUpdate';
 
 // useState --> https://it.reactjs.org/docs/hooks-state.html
@@ -53,8 +53,6 @@ function IndexPage() {
             </LastUpdate>
             <Stats>
             </Stats>
-            <Chart>                
-            </Chart>
         </div>
     );
 }

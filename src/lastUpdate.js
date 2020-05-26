@@ -20,7 +20,7 @@ function LastUpdate(res) {
     return (
         <div>
             <p>Last update:</p>
-            <h1 key={res} class="LastUpdate">                
+            <h1 key={res} className="LastUpdate">                
             </h1>
         </div>
     );
