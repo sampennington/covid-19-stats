@@ -1,5 +1,7 @@
 import React from 'react';
 import useStats from './useStats';
+import Chart from './Chart';
+import LastUpdate from './lastUpdate';
 
 // useState --> https://it.reactjs.org/docs/hooks-state.html
 // useEffect --> https://it.reactjs.org/docs/hooks-effect.html
@@ -21,13 +23,13 @@ function Stats() {
         textAlign: 'center'
     };
 
-    const url = 'https://covid19.mathdro.id/api/countries/italy';
+    const url = `https://covid19.mathdro.id/api/countries/italy`;
     
     const stats = useStats(url);
     
     if (!stats) return <p>Loading...</p>;
     return (        
-        <div style={statGrid}>                   
+        <div style={statGrid}>                            
             <div style={statBlock}>
                 <h3>Total cases:</h3>
                 <span>{stats.confirmed.value}</span>
@@ -39,8 +41,7 @@ function Stats() {
             <div style={statBlock}>
                 <h3>Deaths:</h3>
                 <span>{stats.deaths.value}</span>
-            </div>          
-            
+            </div>
         </div>
     );
 }
@@ -48,8 +49,12 @@ function Stats() {
 function IndexPage() {
     return (
         <div>
+            <LastUpdate>                
+            </LastUpdate>
             <Stats>
             </Stats>
+            <Chart>                
+            </Chart>
         </div>
     );
 }

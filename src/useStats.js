@@ -5,7 +5,7 @@ function useStats() {
 
     useEffect(() => {
         async function fetchData() {            
-            const data = await fetch('https://covid19.mathdro.id/api/countries/italy')
+            const data = await fetch(`https://covid19.mathdro.id/api/countries/italy`)
                 .then(res => res.json());
              setStats(data);
              console.log(data);
