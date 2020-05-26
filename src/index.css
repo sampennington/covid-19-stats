@@ -10,4 +10,10 @@ code {
     monospace;
 }
 
+.LastUpdate {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 200;
+}
+
 

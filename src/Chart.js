@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import data from './useStats';
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 
-class Chart extends React.Component {
+
+class Chart extends PureComponent {
+  static jsfiddleUrl = 'https://jsfiddle.net/alidingling/xqjtetw0/';
 
   render() {
     return (

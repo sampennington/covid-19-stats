@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LastUpdate(res) {
+function LastUpdate(res) {     
 
     fetch(`https://covid19.mathdro.id/api/countries/italy`).then((response) => {
 
@@ -8,19 +8,19 @@ function LastUpdate(res) {
 
     }).then((res) => {
 
-        // console.log(responseJson);
         injectInfo(res);
 
     });
 
     function injectInfo(res) {
-        var root = document.getElementById('LastUpdate');
+        var root = document.querySelector('.LastUpdate');
         root.innerHTML = res.lastUpdate;
     }
 
     return (
         <div>
-            Last update: <h1 key={res} id="LastUpdate">
+            <p>Last update:</p>
+            <h1 key={res} class="LastUpdate">                
             </h1>
         </div>
     );
