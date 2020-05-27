@@ -1,16 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
-    LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
-} from 'recharts';
-import useStats from './useStats';
+  BarChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  Bar,
+} from "recharts";
+import useStats from "./useStats";
 
 function Graph() {
+  const url = `https://covid19.mathdro.id/api/countries/italy`;
+  const stats = useStats(url);
+  if (!stats) return <p>Loading...</p>;
 
-    const url = `https://covid19.mathdro.id/api/countries/italy`;
-    const stats = useStats(url);
-    if (!stats) return <p>Loading...</p>;
-
-    /*let apiValue = await fetch(`https://covid19.mathdro.id/api/countries/italy`);
+  /*let apiValue = await fetch(`https://covid19.mathdro.id/api/countries/italy`);
     const header = apiValue;
     console.log(header);
 
@@ -45,26 +51,40 @@ function Graph() {
         };
     };
     runCall();*/
+  const graphData = Object.keys(stats).map((statKey) => ({
+    [statKey]: stats[statKey].value,
+  }));
 
-    return (
-        <div className="chart-wrapper">
-            <LineChart
-                width={800}
-                height={500}
-                data={stats}
-                margin={{
-                    top: 5, right: 30, left: 20, bottom: 5,
-                }}
-            >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="stats" stroke="blue" activeDot={{ r: 8 }} />
-            </LineChart>            
-        </div >
-    );
+  return (
+    <div className="chart-wrapper">
+      <BarChart
+        width={800}
+        height={500}
+        data={graphData}
+        margin={{
+          top: 5,
+          right: 30,
+          left: 20,
+          bottom: 5,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        {/* <Line
+          type="monotone"
+          dataKey="value"
+          stroke="blue"
+          activeDot={{ r: 8 }}
+        /> */}
+        <Bar dataKey="deaths" fill="#8884d8" />
+        <Bar dataKey="confirmed" fill="#8884d8" />
+        <Bar dataKey="recovered" fill="#8884d8" />
+      </BarChart>
+    </div>
+  );
 }
 
 export default Graph;
